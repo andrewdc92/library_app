@@ -9,10 +9,14 @@ Rails.application.routes.draw do
   post '/users', to: 'users#create'
   post 'libraries', to: 'libraries#create'
   get '/libraries/:id', to: 'libraries#show', as: 'library'
+  get '/libraries/:id/edit', to: 'libraries#edit', as: 'edit_libraries'
+  get '/users/:id/edit', to: 'users#edit', as: 'edit_users'
   get '/users/:id', to: 'users#show', as: "user"
   get '/users/:user_id/libraries', to: 'library_users#index', as: 'user_libraries'
   post '/libraries/:library_id/users', to: 'library_users#create', as: 'library_users'
   get '/login', to: 'sessions#new'
   get '/logout', to: 'sessions#destroy'
   post '/sessions', to: 'sessions#create'
+  patch '/libraries/:id', to: 'libraries#update'
+  patch '/users/:id', to: 'users#update'
 end
