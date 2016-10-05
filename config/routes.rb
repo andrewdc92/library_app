@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'libraries', to: 'libraries#create'
   get '/users/:id', to: 'users#show', as: "user"
   get '/users/:user_id/libraries', to: 'library_users#index', as: 'user_libraries'
+  post '/libraries/:library_id/users', to: 'library_users#create', as: 'library_users'
   get '/login', to: 'sessions#new'
   get '/logout', to: 'sessions#destroy'
   post '/sessions', to: 'sessions#create'
