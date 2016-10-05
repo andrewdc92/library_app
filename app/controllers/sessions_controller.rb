@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
 
+  def new
+    @user = User.new
+  end
 
   def create
     user_params = params.require(:user).permit(:email, :password)
@@ -13,7 +16,6 @@ class SessionsController < ApplicationController
       redirect_to login_path
     end
   end
-  
     def destroy
       session[:user_id] = nil
       flash[:notice] = "Successfully logged out."
